@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Navbar from './components/Navbar';
 import SignIn from './components/Login';
 import SignUp from './components/SignUp';
+import Timeline from './components/timeline';
 import Post from './components/post';
 import Logout from './components/Logout';
 import About from './components/about';
@@ -47,6 +48,10 @@ const Routing = () => {
 
       <Route path="/post">
         <Post />
+      </Route>
+
+      <Route path="/timeline">
+        <Timeline />
       </Route>
 
       <Route>

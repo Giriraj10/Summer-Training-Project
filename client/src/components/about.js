@@ -1,5 +1,5 @@
 import React, {useEffect, useState}  from 'react';
-import epic from "../assets/img/demo-image-01.jpge";
+import epic from "../assets/img/demo-image-01.jpg";
 import aboutpic from "../assets/img/demo-image-01.jpg";
 import {NavLink, useHistory } from "react-router-dom";
 

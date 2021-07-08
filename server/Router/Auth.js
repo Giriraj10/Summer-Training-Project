@@ -5,12 +5,32 @@ const bcrypt = require('bcryptjs');
 const authenticate = require("../middleware/authenticate");
 
 require('../DB/conn')
-const User = require('../model/userschema')
+const User = require('../model/userschema');
+const Job = require('../model/postschema');
 
 router.get('/', (req, res) => {
     res.send(`Hello world from the server rotuer js`);
 });
 
+router.post('/post', async (req, res) => {
+    const {orgname,jobtitle,salary,location} = req.body;
+    
+    if(!orgname || !jobtitle || !salary || !location){
+        return res.status(422).json({error:"Please Fill All the Entries"});
+    }
+    
+    try{
+        
+        const post = new Job({orgname, jobtitle,salary,location});
+        //hash pass
+        await post.save();
+        res.status(201).json({message: "Post Registered Successfully"});
+        console.log(req.body)
+    }catch(err){
+        console.log(err);
+    }
+    // res.send(`Hello world from the post`);
+});
 
 
 //register
@@ -41,8 +61,6 @@ router.post('/signup', async (req, res) => {
     }
 
 });
-
-
 
 //loogin route
 
@@ -85,7 +103,6 @@ router.post('/signin' , async  (req, res) => {
     }
 });
 
-
 // about us ka page 
 
 router.get('/about', authenticate ,(req, res) => {
@@ -99,9 +116,12 @@ router.get('/getdata', authenticate, (req, res) => {
     res.send(req.rootUser);
 });
 
+router.get('/getpostdata',authenticate, (req, res) => {
+    console.log(`fetching user data`);
+     res.send(req.rootUser);
+ });
 
 // contact us page 
-
 router.post('/contact', authenticate, async (req, res) => {
     try {
 
@@ -130,35 +150,34 @@ router.post('/contact', authenticate, async (req, res) => {
 
 });
 
+// //post ka page
+// router.post('/post', authenticate, async (req, res) => {
+//     try {
 
-//post ka page
-router.post('/post', authenticate, async (req, res) => {
-    try {
-
-        const {orgname,jobtitle ,salary ,location } = req.body;
+//         const {orgname,jobtitle ,salary ,location } = req.body;
         
-        if (!orgname || !jobtitle || !salary || !location) {
-            console.log("error in post form");
-            return res.json({ error: "Please fill the Post form correctly" });
-        }
+//         if (!orgname || !jobtitle || !salary || !location) {
+//             console.log("error in post form");
+//             return res.json({ error: "Please fill the Post form correctly" });
+//         }
 
-        const userPost = await User.findOne({ _id: req.userID });
+//         const userPost = await Job.findOne({ _id: req.userID });
  
-        if (userPost) {
+//         if (userPost) {
             
-            const userMessage = await userPost.addPost(orgname,jobtitle ,salary ,location);
+//             const userMessage = await userPost.addPost(orgname,jobtitle ,salary ,location);
 
-            await userPost.save();
+//             await userPost.save();
 
-            res.status(201).json({ message: "Your Post has been sent !" });
+//             res.status(201).json({ message: "Your Post has been sent !" });
 
-        }
+//         }
         
-    } catch (error) {
-        console.log(error);
-    }
+//     } catch (error) {
+//         console.log(error);
+//     }
 
-});
+// });
 
 
 // Logout  ka page 

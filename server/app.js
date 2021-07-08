@@ -9,7 +9,7 @@ app.use(cookieParser());
 dotenv.config({ path: './config.env' });
 
 require('./DB/conn');
-// const User = require('./model/userSchema');
+//const User = require('./model/userSchema');
 
 app.use(express.json());
 

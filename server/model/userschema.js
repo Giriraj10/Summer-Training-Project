@@ -54,26 +54,6 @@ const userSchema = new mongooose.Schema({
             }
         }
     ], 
-    posts:[
-        {
-            orgname: {
-                type: String,
-                required:true
-            },
-            jobtitle: {
-                type: String,
-                required:true
-            },
-            salary: {
-                type: Number,
-                required:true
-            },
-            location: {
-                type: String,
-                required:true
-            }
-        }
-    ],
     tokens:[
         {
             token:{
@@ -107,7 +87,6 @@ try{
 }catch(err){
     console.log(err);
 }
-
 }
 
 // stored the message 
@@ -122,19 +101,6 @@ userSchema.methods.addMessage = async function (name, email, phone, message) {
     }
 }
 
-// stored post data
-userSchema.methods.addPost = async function (orgname,jobtitle ,salary ,location ) {
-    try {
-        this.posts = this.posts.concat({ orgname,jobtitle ,salary ,location });
-        await this.save();
-        return this.posts;
-    } catch (error) {
-        console.log(error)
-    }
-}
-
-
 // collection creation 
 const User = mongooose.model('USER', userSchema);
-
 module.exports = User;
