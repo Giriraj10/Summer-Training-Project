@@ -2,7 +2,7 @@
 import axios from 'axios';
 const Timeline = () => {
     // const history = useHistory();
-    const [userData, setUserData] = useState({name:"",posts:[] });
+    const [userData, setUserData] = useState({ });
 
     const callAboutPost = async () => {
         try {
@@ -33,28 +33,6 @@ const Timeline = () => {
     useEffect(() => {
         callAboutPost();
     }, []);
-
-
-//    state={
-//        posts:[]
-//     }
-   
-// componentDidMount=()=>{
-//        this.getpost();
-//    };
-
-
-//     getpost = ()=>{
-//         axios.get('/getdata')
-//         .then(()=>{
-//           const data = response.data;
-//           this.setState({posts:data});
-//           console.log(' fetching data for posts')
-//         })
-//         .catch(()=>{
-//         alert('error retrieving data');
-//         });
-//         }
 
 return (
 <div>
