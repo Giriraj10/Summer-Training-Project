@@ -53,7 +53,7 @@ const Signup = () => {
         <div>
         <div>
             <section className="signup">
-                <div className="container mt-5">
+                <div className="container mt-3">
                     <div className="signup-content">
                         <div className="signup-form">
                             <h1 className="form-title">Sign up</h1>
@@ -145,6 +145,7 @@ const Signup = () => {
                     </div>
                 </div>
            </section>
+           
            </div>
 
 
