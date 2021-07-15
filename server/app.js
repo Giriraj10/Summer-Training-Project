@@ -16,6 +16,9 @@ app.use(express.json());
 // we link the router files to make our route easy 
 app.use(require('./Router/Auth'));
 
+app.use("/post",require("./Router/Auth"))
+
+
 const PORT = process.env.PORT;
 
 

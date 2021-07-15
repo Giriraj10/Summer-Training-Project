@@ -836,6 +836,16 @@ body {
   padding-right: 15px;
 }
 
+.contact_info_items {
+  background-color:#777;
+  width: calc((100% - 60px) / 3);
+  height: 100px;
+  border: solid 1px #e8e8e8;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+  padding-left: 32px;
+  padding-right: 15px;
+}
+
 .timeline_info_item {
   width: calc((100% - 60px) / 3);
   background: #b2b2b2;
@@ -857,6 +867,7 @@ body {
 }
 
 .contact_info_content {
+  
   padding-left: 17px;
 }
 

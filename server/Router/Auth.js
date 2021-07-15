@@ -12,6 +12,8 @@ router.get('/', (req, res) => {
     res.send(`Hello world from the server rotuer js`);
 });
 
+
+//post ka page
 router.post('/post', async (req, res) => {
     const {orgname,jobtitle,salary,location} = req.body;
     
@@ -20,12 +22,18 @@ router.post('/post', async (req, res) => {
     }
     
     try{
-        
+        const orgExist = await Job.findOne({orgname:orgname});
+        const jobExist = await Job.findOne({jobtitle:jobtitle});
+        const salExist = await Job.findOne({salary:salary});
+        const locExist = await Job.findOne({location:location});
+        if(orgExist && jobExist && salExist &&locExist){
+            return res.status(422).json({ error: "Post Already Exists"});
+        }else{
         const post = new Job({orgname, jobtitle,salary,location});
         //hash pass
         await post.save();
         res.status(201).json({message: "Post Registered Successfully"});
-        console.log(req.body)
+        }
     }catch(err){
         console.log(err);
     }
@@ -85,7 +93,7 @@ router.post('/signin' , async  (req, res) => {
         } else {
              // need to genereate the token and stored cookie after the password match 
             token = await userLogin.generateAuthToken();
-            console.log(token);
+            // console.log(token)
 
             res.cookie("jwtoken", token, {
                 expires: new Date(Date.now() + 1800000),
@@ -104,7 +112,6 @@ router.post('/signin' , async  (req, res) => {
 });
 
 // about us ka page 
-
 router.get('/about', authenticate ,(req, res) => {
     console.log(`Accessing profile section`);
     res.send(req.rootUser);
@@ -116,9 +123,11 @@ router.get('/getdata', authenticate, (req, res) => {
     res.send(req.rootUser);
 });
 
-router.get('/getpostdata',authenticate, (req, res) => {
-    console.log(`fetching user data`);
-     res.send(req.rootUser);
+router.route('/getpost').get((req, res) => {
+    Job.find()
+    .then(foundpost => res.json(foundpost))
+    // console.log(`fetching user data`);
+    //  res.send(req.body);
  });
 
 // contact us page 
@@ -150,34 +159,6 @@ router.post('/contact', authenticate, async (req, res) => {
 
 });
 
-// //post ka page
-// router.post('/post', authenticate, async (req, res) => {
-//     try {
-
-//         const {orgname,jobtitle ,salary ,location } = req.body;
-        
-//         if (!orgname || !jobtitle || !salary || !location) {
-//             console.log("error in post form");
-//             return res.json({ error: "Please fill the Post form correctly" });
-//         }
-
-//         const userPost = await Job.findOne({ _id: req.userID });
- 
-//         if (userPost) {
-            
-//             const userMessage = await userPost.addPost(orgname,jobtitle ,salary ,location);
-
-//             await userPost.save();
-
-//             res.status(201).json({ message: "Your Post has been sent !" });
-
-//         }
-        
-//     } catch (error) {
-//         console.log(error);
-//     }
-
-// });
 
 
 // Logout  ka page 

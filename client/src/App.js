@@ -51,7 +51,7 @@ const Routing = () => {
       </Route>
 
       <Route path="/timeline">
-        <Timeline />
+       <Timeline /> 
       </Route>
 
       <Route>
