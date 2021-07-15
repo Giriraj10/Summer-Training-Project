@@ -860,6 +860,10 @@ body {
   ;
 }
 
+.card{
+max-width: 250px;
+}
+
 .contact_info_image {
   width: 35px;
   height: 35px;

@@ -11,17 +11,8 @@ const timeline =()=> {
   
     //JSX
     return(
-      <div>
-
-       
-          <Postcard/>
-        
-
-        
-        
-        
-      
-     </div>
+    <Postcard/>
+    
     );
   
 }

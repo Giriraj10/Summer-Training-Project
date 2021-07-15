@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Grid } from '@material-ui/core';
+import { Card } from '@material-ui/core';
 
 export default class SpacingGrid extends React.Component {
 
@@ -29,10 +29,8 @@ export default class SpacingGrid extends React.Component {
         
       if (!posts.length) return null;
       return posts.map((post, index) => (
-         <div key={index}>
-        <Grid container >
-        <Grid item><div  className="timeline_info_item">            
-          <div>
+        
+        <div className="timeline_info_item" key={index}>
               <div>Organisation : {post.orgname}</div>
               <div>Jobtitle : {post.jobtitle}</div>
               <div>Stipend : {post.salary}</div>
@@ -42,13 +40,10 @@ export default class SpacingGrid extends React.Component {
                       value="Apply"
                   />
               </div>
-          </div>   
-          </div>
-          </Grid>
-          </Grid>
-          </div>
-                           
-        
+              </div>
+            
+  
+                
       ));
     };
   
@@ -58,7 +53,7 @@ export default class SpacingGrid extends React.Component {
       return(
         <div>
           {this.displayBlogPost(this.state.posts)} 
-       </div>
+          </div>
      
       );
     }
