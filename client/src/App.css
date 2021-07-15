@@ -22,6 +22,7 @@ body {
 } 
 
 
+
 /* @extend display-flex; */
 display-flex,
 .display-flex,
@@ -847,13 +848,16 @@ body {
 }
 
 .timeline_info_item {
-  width: calc((100% - 60px) / 3);
-  background: #b2b2b2;
-  height: 100px;
-  border: solid 1px #e8e8e8;
-  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
-  padding-left: 32px;
-  padding-right: 15px;
+  background-color: #fff;
+  justify-content: center;
+  text-align: center;
+  margin-top: 25px;
+  min-height: 250px;
+  max-width: 250px;
+  border-radius: 10px;
+  font-size:15px;
+  padding: 30px;
+  ;
 }
 
 .contact_info_image {

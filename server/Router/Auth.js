@@ -126,8 +126,7 @@ router.get('/getdata', authenticate, (req, res) => {
 router.route('/getpost').get((req, res) => {
     Job.find()
     .then(foundpost => res.json(foundpost))
-    // console.log(`fetching user data`);
-    //  res.send(req.body);
+    console.log(`fetching post data`);
  });
 
 // contact us page 
