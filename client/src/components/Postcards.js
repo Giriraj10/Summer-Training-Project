@@ -1,5 +1,16 @@
 import React from 'react';
 import axios from 'axios';
+import { styled } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import Box from '@material-ui/core/Box';
+
+const Item = styled(Paper)(({ theme }) => ({
+  ...theme.typography.body2,
+  padding: theme.spacing(4),
+  textAlign: 'center',
+  color: theme.palette.text.primary,
+}));
 
 export default class SpacingGrid extends React.Component {
 
@@ -23,37 +34,36 @@ export default class SpacingGrid extends React.Component {
           alert('Error retrieving data!!!');
         });
     }
- 
-    displayBlogPost = (posts) => {
-        
-      if (!posts.length) return null;
-      return posts.map((post, index) => (
-        
-        <div className="timeline_info_item" key={index}>
-              <div>Organisation : {post.orgname}</div>
-              <div>Jobtitle : {post.jobtitle}</div>
-              <div>Stipend : {post.salary}</div>
-              <div>Location : {post.location}</div>
-              <div className="form-group form-button">
-                  <input type="submit" name="post" id="post" className="form-submit"
-                      value="Apply"
-                  />
-              </div>
-              </div>
-            
-  
-                
-      ));
-    };
-  
+
     render() {
   
       //JSX
       return(
-        <div>
-          {this.displayBlogPost(this.state.posts)} 
-          </div>
-     
+        <div> 
+          <h1/>
+          <Box sx={{ flexGrow: 1 }}>
+      <Grid container direction="row" spacing={2}>
+        {this.state.posts.map((post, index) => (
+          <Grid item xs={3} sm={4} md={4} key={index}>
+               <Item><div>
+                <div>Organisation : {post.orgname}</div>
+                 <div>Jobtitle : {post.jobtitle}</div>
+               <div>Stipend : {post.salary}</div>
+                 <div>Location : {post.location}</div>
+                 <div className="form-group form-button">
+                     <input type="submit" name="post" id="post" className="form-submit"
+                        value="Apply"
+                     />
+                 </div>
+                  </div></Item>
+          </Grid>
+        ))}
+      </Grid>
+      
+    </Box> 
+      
+      </div>
+      
       );
     }
   }
