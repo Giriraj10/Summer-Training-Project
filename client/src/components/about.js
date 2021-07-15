@@ -1,6 +1,6 @@
 import React, {useEffect, useState}  from 'react';
 import epic from "../assets/img/demo-image-01.jpg";
-import aboutpic from "../assets/img/demo-image-01.jpg";
+
 import {NavLink, useHistory } from "react-router-dom";
 
 const About = () => {
@@ -45,7 +45,7 @@ const About = () => {
                     <div className="row">
                         <div className="col-md-4">
                             <div className="profile-img">
-                            <img src={userData.name === "Giriraj Singh Tanwar" ? epic : aboutpic} alt="thapa" />
+                            <img src={epic}/>
                             </div>
                           
                         </div>
