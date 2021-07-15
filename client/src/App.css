@@ -849,13 +849,11 @@ body {
 
 .timeline_info_item {
   background-color: #fff;
-  justify-content: center;
   text-align: center;
   margin-top: 25px;
   min-height: 250px;
   max-width: 250px;
   border-radius: 10px;
-  font-size:15px;
   padding: 30px;
   ;
 }

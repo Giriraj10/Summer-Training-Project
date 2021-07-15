@@ -62,7 +62,7 @@ const About = () => {
                                    <a className="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
                                     </li>
                                     <li className="nav-item">
-                                       <a className="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
+                                       <a className="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">More Info</a>
                     
                                     </li>
                                 </ul>
@@ -88,14 +88,13 @@ const About = () => {
                         <div className="col-md-4">
                             <div className="profile-work">
                                 <p> WORK LINK</p>
-                                <a href="https://www.youtube.com/channel/UCwfaAHy4zQUb2APNOGXUCCA" target="_thapa">Youtube</a> <br />
-                                <a href="https://www.youtube.com/channel/UCwfaAHy4zQUb2APNOGXUCCA" target="_thapa">Instagram</a> <br />
-            
-                                <a href="https://www.youtube.com/channel/UCwfaAHy4zQUb2APNOGXUCCA" target="_thapa">WebsiteGitHubMERN Dev</a> <br />
-                                <a href="https://www.youtube.com/channel/UCwfaAHy4zQUb2APNOGXUCCA" target="_thapa">Web Developer</a> <br />
-                                <a href="https://www.youtube.com/channel/UCwfaAHy4zQUb2APNOGXUCCA" target="_thapa">Figma</a> <br />
-                                <a href="https://www.youtube.com/channel/UCwfaAHy4zQUb2APNOGXUCCA" target="_thapa">Software Engeeneer</a> <br />
-                                
+                                <a href="https://www.youtube.com" target="gst">Youtube</a> <br />
+                                <a href="https://www.instagram.com" target="gst">Instagram</a> <br />
+                                <a href="https://in.linkedin.com/" target="gst">Linked In</a> <br />
+                                <a href="https://www.github.com" target="gst">GitHub</a> <br />
+                                <a href="https://www.google.com" target="gst">Google</a> <br />
+                                <a href="https://www.facebook.com" target="gst">Facebook</a> <br />
+                                <a href="https://www.twitter.com" target="gst">Twitter</a> <br />
                                 
                             </div>
                         </div> 

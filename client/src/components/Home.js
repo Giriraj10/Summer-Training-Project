@@ -32,7 +32,7 @@ const Home = () => {
                 <div className="home-div">
                     <p className="pt-5">WELCOME</p>
                     <h1>{userName}</h1>
-                    <h2> { show ? 'Happpy, to see you Again' :  'We are the Future' }</h2>
+                    <h2> { show ? 'Happy, to see you Again' :  'We are the Future' }</h2>
                 </div>
             </div>
             
