@@ -1,12 +1,13 @@
 import React, {useEffect, useState}  from 'react';
 import epic from "../assets/img/demo-image-01.jpg";
-
 import {NavLink, useHistory } from "react-router-dom";
+
 
 const About = () => {
     const history = useHistory();
     const [userData, setUserData] = useState({});
 
+      
     const callAboutPage = async () => {
         try {
             const res = await fetch('/about', {
@@ -37,7 +38,8 @@ const About = () => {
         callAboutPage();
     }, []);
 
-    return (
+
+return (
         <>
         
             <div className="container emp-profile">
@@ -194,6 +196,7 @@ const About = () => {
 
                 </form>
            </div>
+        
         </>
     )
 }

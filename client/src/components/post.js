@@ -13,6 +13,8 @@ const Post = () => {
         value = e.target.value;
         
         setUser({...user, [name]:value});
+    
+
     }
 
 
@@ -48,13 +50,11 @@ const Post = () => {
     return (
 
 <div>
-    {/* Post on portal (form)  */}
-    <section className="sign-in">
-                <div className="container mt-5">
-                    <div className="signin-content">
-                          
-                        <div className="signin-form">
-                            <h1 className="form-title">Post a JOB </h1>
+    <div>
+        <h1/>
+        <div className="h12">Post a Job</div>
+        <br/>
+                <div className="postformcontainer">
                             <form method="POST" className="register-form" id="register-form">
                              
 
@@ -110,12 +110,10 @@ const Post = () => {
 
                             </form>
                         </div>
-                      
-                    </div>
-                </div>
-           </section>
-
+       
 </div>
+</div>
+
     )
 }
 

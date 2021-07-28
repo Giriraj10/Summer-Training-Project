@@ -11,7 +11,10 @@ const Item = styled(Paper)(({ theme }) => ({
   textAlign: 'center',
   color: theme.palette.text.primary,
 }));
-
+const Applied = async (e) => {
+  e.preventDefault();
+      window.alert("Applied Successfully");
+}
 export default class SpacingGrid extends React.Component {
 
     state = {
@@ -52,7 +55,7 @@ export default class SpacingGrid extends React.Component {
                  <div>Location : {post.location}</div>
                  <div className="form-group form-button">
                      <input type="submit" name="post" id="post" className="form-submit"
-                        value="Apply"
+                        value="Apply" onClick={Applied}
                      />
                  </div>
                   </div></Item>
